@@ -1,0 +1,28 @@
+plugins {
+    id 'org.springframework.boot' version '1.5.19.RELEASE'
+    id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group 'ru.astafev.test'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.14.8'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+    compile('org.hibernate:hibernate-validator')
+
+    // embedded document db
+    compile 'org.dizitart:nitrite:3.1.0'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
